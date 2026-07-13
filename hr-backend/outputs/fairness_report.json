@@ -1,0 +1,108 @@
+{
+  "group_col": "department",
+  "note": "Audited against 'department' because the dataset has no gender/age/ethnicity field. Methodology (demographic parity difference + four-fifths disparate impact rule) is identical for any protected attribute.",
+  "reports": {
+    "salary_change": {
+      "outcome": "salary_change",
+      "group_col": "department",
+      "per_class": {
+        "decrease": {
+          "outcome": "salary_change = decrease",
+          "group_col": "department",
+          "selection_rates": {
+            "Engineering": 0.1032,
+            "Finance": 0.141,
+            "HR": 0.0563,
+            "Marketing": 0.1538,
+            "Sales": 0.1161,
+            "Support": 0.114
+          },
+          "demographic_parity_difference": 0.0975,
+          "disparate_impact_ratio": 0.3662,
+          "flagged": true,
+          "thresholds": {
+            "dpd_flag_above": 0.2,
+            "dir_flag_below": 0.8
+          }
+        },
+        "increase": {
+          "outcome": "salary_change = increase",
+          "group_col": "department",
+          "selection_rates": {
+            "Engineering": 0.4325,
+            "Finance": 0.4487,
+            "HR": 0.4789,
+            "Marketing": 0.4385,
+            "Sales": 0.4,
+            "Support": 0.3772
+          },
+          "demographic_parity_difference": 0.1017,
+          "disparate_impact_ratio": 0.7877,
+          "flagged": true,
+          "thresholds": {
+            "dpd_flag_above": 0.2,
+            "dir_flag_below": 0.8
+          }
+        },
+        "no_change": {
+          "outcome": "salary_change = no_change",
+          "group_col": "department",
+          "selection_rates": {
+            "Engineering": 0.4643,
+            "Finance": 0.4103,
+            "HR": 0.4648,
+            "Marketing": 0.4077,
+            "Sales": 0.4839,
+            "Support": 0.5088
+          },
+          "demographic_parity_difference": 0.1011,
+          "disparate_impact_ratio": 0.8013,
+          "flagged": false,
+          "thresholds": {
+            "dpd_flag_above": 0.2,
+            "dir_flag_below": 0.8
+          }
+        }
+      },
+      "any_class_flagged": true
+    },
+    "wfh_allowed": {
+      "outcome": "wfh_allowed",
+      "group_col": "department",
+      "selection_rates": {
+        "Engineering": 0.463,
+        "Finance": 0.4096,
+        "HR": 0.381,
+        "Marketing": 0.4286,
+        "Sales": 0.4803,
+        "Support": 0.3613
+      },
+      "demographic_parity_difference": 0.1189,
+      "disparate_impact_ratio": 0.7524,
+      "flagged": true,
+      "thresholds": {
+        "dpd_flag_above": 0.2,
+        "dir_flag_below": 0.8
+      }
+    },
+    "must_work_saturday": {
+      "outcome": "must_work_saturday",
+      "group_col": "department",
+      "selection_rates": {
+        "Engineering": 0.4008,
+        "Finance": 0.4688,
+        "HR": 0.5227,
+        "Marketing": 0.4677,
+        "Sales": 0.4588,
+        "Support": 0.4018
+      },
+      "demographic_parity_difference": 0.1219,
+      "disparate_impact_ratio": 0.7668,
+      "flagged": true,
+      "thresholds": {
+        "dpd_flag_above": 0.2,
+        "dir_flag_below": 0.8
+      }
+    }
+  }
+}

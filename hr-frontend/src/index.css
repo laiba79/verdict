@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+/* Visible keyboard focus everywhere — never suppressed */
+:focus-visible {
+  outline: 2px solid #335765;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.dark :focus-visible {
+  outline-color: #5C8C89;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 87, 101, 0.28);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.dark ::-webkit-scrollbar-thumb { background: rgba(92, 140, 137, 0.28); background-clip: content-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Card surface used throughout the app */
+.panel {
+  @apply bg-white dark:bg-ink-800 border border-primary-400/40 dark:border-white/[0.09] rounded-2xl shadow-soft;
+}
+
+/* Opt-in hover state for panels that are actually clickable/navigable
+   (stat cards, list rows, table rows) -- deliberately NOT applied to every
+   .panel, since a hover lift on a static content block implies it does
+   something when it doesn't. */
+.panel-hover {
+  @apply transition-all duration-300 ease-out cursor-pointer;
+  will-change: transform;
+}
+.panel-hover:hover {
+  transform: translateY(-4px) scale(1.008);
+  border-color: rgba(51, 87, 101, 0.35);
+  box-shadow: 0 4px 12px -2px rgba(14, 27, 32, 0.08), 0 20px 40px -12px rgba(51, 87, 101, 0.24);
+}
+.dark .panel-hover:hover {
+  border-color: rgba(92, 140, 137, 0.35);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.35), 0 20px 40px -12px rgba(92, 140, 137, 0.18);
+}
+
+/* Quieter hover for panels that contain their own controls (e.g. an
+   approval record with Approve/Reject buttons inside it) -- signals
+   "attention" on hover without implying the whole card is one big button. */
+.panel-settle {
+  @apply transition-colors duration-300 ease-out;
+}
+.panel-settle:hover {
+  border-color: rgba(51, 87, 101, 0.3);
+}
+.dark .panel-settle:hover {
+  border-color: rgba(92, 140, 137, 0.3);
+}
+
+/* Ambient floating background — soft blurred blobs drifting behind app
+   content. Fixed + pointer-events-none so it never interferes with
+   interaction; kept at very low opacity so it reads as texture, not noise. */
+.ambient-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambient-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.16;
+}
+.dark .ambient-blob {
+  opacity: 0.14;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ambient-blob { animation: none !important; }
+}
+
+/* Frosted surface, reserved for the login screen */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Safety net for any native <select> left in the app: guarantees the
+   closed control and its dropdown popup always have explicit, readable
+   colors instead of inheriting an invisible system default. */
+select {
+  color-scheme: light;
+}
+.dark select {
+  color-scheme: dark;
+}
+select option {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+.dark select option {
+  background-color: #16262C;
+  color: #f1f5f9;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle grid texture used behind the login hero */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
+}

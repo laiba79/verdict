@@ -1,0 +1,172 @@
+{
+  "shipped_models": [
+    {
+      "target": "salary_change",
+      "best_model": "LogisticRegression",
+      "val_macro_f1": 0.9847,
+      "test_accuracy": 0.9775,
+      "test_macro_f1": 0.9704
+    },
+    {
+      "target": "wfh_allowed",
+      "best_model": "XGBoost (balanced)",
+      "val_macro_f1": 0.9667,
+      "test_accuracy": 0.9838,
+      "test_macro_f1": 0.9834
+    },
+    {
+      "target": "must_work_saturday",
+      "best_model": "XGBoost (balanced)",
+      "val_macro_f1": 0.9975,
+      "test_accuracy": 0.9975,
+      "test_macro_f1": 0.9975
+    }
+  ],
+  "all_variants": [
+    {
+      "target": "salary_change",
+      "model": "LogisticRegression",
+      "shipped": true,
+      "test_accuracy": 0.9775,
+      "test_macro_f1": 0.9704,
+      "test_per_class_f1": {
+        "decrease": 0.9486,
+        "increase": 0.9868,
+        "no_change": 0.9758
+      }
+    },
+    {
+      "target": "salary_change",
+      "model": "RandomForest",
+      "shipped": false,
+      "test_accuracy": 0.8575,
+      "test_macro_f1": 0.8264,
+      "test_per_class_f1": {
+        "decrease": 0.7314,
+        "increase": 0.903,
+        "no_change": 0.8447
+      }
+    },
+    {
+      "target": "salary_change",
+      "model": "XGBoost (no weighting)",
+      "shipped": false,
+      "test_accuracy": 0.9125,
+      "test_macro_f1": 0.8588,
+      "test_per_class_f1": {
+        "decrease": 0.7132,
+        "increase": 0.9511,
+        "no_change": 0.9121
+      }
+    },
+    {
+      "target": "salary_change",
+      "model": "XGBoost (balanced)",
+      "shipped": false,
+      "test_accuracy": 0.9237,
+      "test_macro_f1": 0.8921,
+      "test_per_class_f1": {
+        "decrease": 0.8,
+        "increase": 0.9556,
+        "no_change": 0.9207
+      }
+    },
+    {
+      "target": "wfh_allowed",
+      "model": "LogisticRegression",
+      "shipped": false,
+      "test_accuracy": 0.8512,
+      "test_macro_f1": 0.8489,
+      "test_per_class_f1": {
+        "0": 0.8676,
+        "1": 0.8302
+      }
+    },
+    {
+      "target": "wfh_allowed",
+      "model": "RandomForest",
+      "shipped": false,
+      "test_accuracy": 0.9663,
+      "test_macro_f1": 0.9657,
+      "test_per_class_f1": {
+        "0": 0.9701,
+        "1": 0.9613
+      }
+    },
+    {
+      "target": "wfh_allowed",
+      "model": "XGBoost (no weighting)",
+      "shipped": false,
+      "test_accuracy": 0.9875,
+      "test_macro_f1": 0.9872,
+      "test_per_class_f1": {
+        "0": 0.9891,
+        "1": 0.9853
+      }
+    },
+    {
+      "target": "wfh_allowed",
+      "model": "XGBoost (balanced)",
+      "shipped": true,
+      "test_accuracy": 0.9838,
+      "test_macro_f1": 0.9834,
+      "test_per_class_f1": {
+        "0": 0.9859,
+        "1": 0.9809
+      }
+    },
+    {
+      "target": "must_work_saturday",
+      "model": "LogisticRegression",
+      "shipped": false,
+      "test_accuracy": 0.9688,
+      "test_macro_f1": 0.9684,
+      "test_per_class_f1": {
+        "0": 0.9716,
+        "1": 0.9652
+      }
+    },
+    {
+      "target": "must_work_saturday",
+      "model": "RandomForest",
+      "shipped": false,
+      "test_accuracy": 0.9975,
+      "test_macro_f1": 0.9975,
+      "test_per_class_f1": {
+        "0": 0.9977,
+        "1": 0.9972
+      }
+    },
+    {
+      "target": "must_work_saturday",
+      "model": "XGBoost (no weighting)",
+      "shipped": false,
+      "test_accuracy": 0.9975,
+      "test_macro_f1": 0.9975,
+      "test_per_class_f1": {
+        "0": 0.9978,
+        "1": 0.9972
+      }
+    },
+    {
+      "target": "must_work_saturday",
+      "model": "XGBoost (balanced)",
+      "shipped": true,
+      "test_accuracy": 0.9975,
+      "test_macro_f1": 0.9975,
+      "test_per_class_f1": {
+        "0": 0.9978,
+        "1": 0.9972
+      }
+    }
+  ],
+  "class_imbalance_handling": {
+    "target": "salary_change",
+    "minority_class": "decrease",
+    "minority_class_share_of_data": 0.1035,
+    "xgboost_no_weighting_minority_f1": 0.7132,
+    "xgboost_balanced_minority_f1": 0.8,
+    "xgboost_no_weighting_macro_f1": 0.8588,
+    "xgboost_balanced_macro_f1": 0.8921
+  }
+}

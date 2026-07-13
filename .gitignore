@@ -1,0 +1,22 @@
+# --- Secrets ---
+.env
+!.env.example
+
+# --- Backend (Python) ---
+hr-backend/__pycache__/
+hr-backend/**/__pycache__/
+hr-backend/*.db
+hr-backend/*.sqlite3
+hr-backend/.venv/
+hr-backend/venv/
+*.pyc
+
+# --- Frontend (Node) ---
+hr-frontend/node_modules/
+hr-frontend/dist/
+hr-frontend/.vite/
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
